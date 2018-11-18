@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client {
+public class TestClient {
 	public static void main(String args[])
 	{
 		try {
