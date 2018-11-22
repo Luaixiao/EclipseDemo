@@ -1,3 +1,4 @@
+package Test;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -11,19 +12,18 @@ public class TestSockServer {
 		InputStream in = null;
 		OutputStream out = null;
 		try {
-			ServerSocket s= new ServerSocket(8888);
+			ServerSocket s = new ServerSocket(8888);
 			System.out.println("服务器启动.....");
-			Socket s1=s.accept();
+			Socket s1 = s.accept();
 			in = s1.getInputStream();
 			out = s1.getOutputStream();
 			DataInputStream dis = new DataInputStream(in);
 			DataOutputStream dos = new DataOutputStream(out);
 			String str = null;
-			if((str=dis.readUTF())!=null)
-			{
-				System.out.println("客户端输入内容："+str);
-				System.out.println("客户端IP地址："+s1.getInetAddress().getHostAddress());
-				System.out.println("客户端端口号："+s1.getPort());
+			if ((str = dis.readUTF()) != null) {
+				System.out.println("客户端输入内容：" + str);
+				System.out.println("客户端IP地址：" + s1.getInetAddress().getHostAddress());
+				System.out.println("客户端端口号：" + s1.getPort());
 			}
 			dos.writeUTF("服务器端反馈客户端！");
 			dis.close();
